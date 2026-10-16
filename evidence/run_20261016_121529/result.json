@@ -1,0 +1,120 @@
+{
+  "issue_id": "QA-001",
+  "issue_title": "[RFQA] Verify add/remove cart functionality",
+  "issue_status": "Ready for QA",
+  "run_status": "PASS",
+  "generated_at_utc": "2026-10-16T06:45:51.100972+00:00",
+  "error": null,
+  "plan": {
+    "goal": "Verify add/remove cart functionality",
+    "steps": [
+      {
+        "id": "1",
+        "action": "navigate",
+        "target_description": "the target URL",
+        "expected_observation": "The homepage of the shopping site is displayed."
+      },
+      {
+        "id": "2",
+        "action": "click",
+        "target_description": "an available product",
+        "expected_observation": "The product details page is displayed."
+      },
+      {
+        "id": "3",
+        "action": "click",
+        "target_description": "the 'Add to Cart' button",
+        "expected_observation": "A confirmation message appears indicating the product has been added to the cart."
+      },
+      {
+        "id": "4",
+        "action": "inspect",
+        "target_description": "the cart",
+        "expected_observation": "The cart displays the selected product name and price."
+      },
+      {
+        "id": "5",
+        "action": "inspect",
+        "target_description": "the cart badge",
+        "expected_observation": "The cart badge reflects one item."
+      },
+      {
+        "id": "6",
+        "action": "click",
+        "target_description": "the 'Remove' button for the selected product",
+        "expected_observation": "The cart is emptied and the badge is cleared."
+      },
+      {
+        "id": "7",
+        "action": "inspect",
+        "target_description": "the cart",
+        "expected_observation": "The cart is empty."
+      },
+      {
+        "id": "8",
+        "action": "inspect",
+        "target_description": "the cart badge",
+        "expected_observation": "The cart badge reflects zero items."
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "AC1",
+      "criterion": "A shopper can add an available product to the cart.",
+      "status": "PASS",
+      "observed": "Observed cart item count: 1",
+      "evidence": "screenshots/cart_before_remove.png"
+    },
+    {
+      "id": "AC2",
+      "criterion": "The cart displays the selected product name and price.",
+      "status": "PASS",
+      "observed": "Observed name='Sauce Labs Backpack', price='$29.99'; expected name='Sauce Labs Backpack', price='$29.99'",
+      "evidence": "screenshots/cart_before_remove.png"
+    },
+    {
+      "id": "AC3",
+      "criterion": "The cart badge reflects one item after adding one product.",
+      "status": "PASS",
+      "observed": "Observed cart badge text: '1'",
+      "evidence": "screenshots/cart_before_remove.png"
+    },
+    {
+      "id": "AC4",
+      "criterion": "Removing the selected product empties the cart and clears the badge.",
+      "status": "PASS",
+      "observed": "Observed remaining items=0; badge=''",
+      "evidence": "screenshots/cart_after_remove.png"
+    },
+    {
+      "id": "AC5",
+      "criterion": "Results are recorded from observed state with evidence files present.",
+      "status": "PASS",
+      "observed": "Validated 4 checks and their evidence references.",
+      "evidence": "result.json"
+    }
+  ],
+  "actions": [
+    {
+      "action": {
+        "action": "click",
+        "target": "Add to cart for Sauce Labs Backpack",
+        "reason": "Adding the first product to the cart."
+      },
+      "observation": "Clicked observed semantic target: Add to cart for Sauce Labs Backpack"
+    },
+    {
+      "action": {
+        "action": "click",
+        "target": "Cart, 1 items",
+        "reason": "Opening the shopping cart after adding the product."
+      },
+      "observation": "Clicked observed semantic target: Cart, 1 items"
+    },
+    {
+      "action": "remove",
+      "observation": "Clicked Remove for Sauce Labs Backpack; the cart state will be verified separately."
+    }
+  ]
+}

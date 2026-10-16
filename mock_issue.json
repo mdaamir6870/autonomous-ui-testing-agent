@@ -1,0 +1,14 @@
+{
+  "id": "QA-001",
+  "title": "[RFQA] Verify add/remove cart functionality",
+  "status": "Ready for QA",
+  "user_story": "As a shopper, I want to add a product to my cart and remove it so I can manage items before checkout.",
+  "target_url": "https://www.saucedemo.com/",
+  "acceptance_criteria": [
+    {"id": "AC1", "text": "A shopper can add an available product to the cart."},
+    {"id": "AC2", "text": "The cart displays the selected product name and price."},
+    {"id": "AC3", "text": "The cart badge reflects one item after adding one product."},
+    {"id": "AC4", "text": "Removing the selected product empties the cart and clears the badge."},
+    {"id": "AC5", "text": "Results must be based on observed browser evidence, not unsupported LLM claims."}
+  ]
+}

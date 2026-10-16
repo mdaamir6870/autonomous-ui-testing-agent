@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+evidence/run_*/
+!evidence/run_20261016_121529/
